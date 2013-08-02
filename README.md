@@ -7,14 +7,14 @@ This is an init.d script for the [Seyren](https://github.com/scobal/seyren#Key) 
 
 To use this you will need to make the below amendments for your environment
 
-Instructions
+##Instructions
 
 1. Copy the seyren init.d script to /etc/init.d/ of the server that its installed on.
 2. Amend the permissions of the seyren script so that its runnable (eg chmod 777 seyren)
 3. Amend the Core environment parameters in the init.d script for your environment detailed below.
 4. Amend the seyrend java directory and home directory for the seyren install. (EG /usr/bin/java and /usr/local/seyren-master)
 
-Example Environment
+####Example Environment
 
 init.d environment variables
 
