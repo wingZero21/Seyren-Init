@@ -12,8 +12,9 @@ Instructions
 1. Copy the seyren init.d script to /etc/init.d/ of the server that its installed on.
 2. Amend the permissions of the seyren script so that its runnable (eg chmod 777 seyren)
 3. Amend the Core environment parameters in the init.d script for your environment detailed below.
+4. Amend the seyrend java directory and home directory for the seyren install. (EG /usr/bin/java and /usr/local/seyren-master)
 
-EG
+Example Environment
 
 init.d environment variables
 
@@ -26,9 +27,9 @@ export SMTP_HOST
 `SMTP_PORT`="25"
 export SMTP_PORT
 
-4. Amend the seyrend java directory and home directory for the seyren install. (EG /usr/bin/java and /usr/local/seyren-master)
+Example seyrend java directory + seyren home directory
 
-seyrend=${SEYREND- ADDJAVADIRHERE -jar ADDSEYRENMASTERHERE/seyren-web/target/dependency/jetty-runner.jar --path /seyren ADDSEYRENMASTERHERE/seyren-web/target/*.war > /dev/null 2>&1 >> /var/log/seyren/seyren.output.log 2>> /var/log/seyren/seyren.log  &}
+#####seyrend=${SEYREND-/usr/bin/java -jar /usr/local/seyren-master/seyren-web/target/dependency/jetty-runner.jar --path /seyren /usr/local/seyren-master/seyren-web/target/*.war > /dev/null 2>&1 >> /var/log/seyren/seyren.output.log 2>> /var/log/seyren/seyren.log  &}
 
 There are further environment variables that can be added if needed which are not currently in the script, 
 however feel free to amend this for your needs as necessary.
