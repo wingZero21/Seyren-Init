@@ -1,9 +1,9 @@
 Seyren-Init
 ===========
 
-Init.d Script for Seyren
+Init.d Script for Graphite Alerting Dashboard Seyren
 
-This is an init.d script for [Seyren](https://github.com/scobal/seyren#Key) which allows you to start the service.
+This is an init.d script for the [Seyren](https://github.com/scobal/seyren#Key) which allows you to start the service.
 
 To use this you will need to make the below amendments for your environment
 
