@@ -32,8 +32,10 @@ Environment variables
 
 Base
 
-GRAPHITE_URL - The location of your graphite server. Default: http://localhost:80
-GRAPHITE_USERNAME - The Http Basic auth username for the graphite server. Default: ``
+GRAPHITE_URL - The location of your graphite server. 
+Default: http://localhost:80
+GRAPHITE_USERNAME - The Http Basic auth username for the graphite server. 
+Default: ``
 GRAPHITE_PASSWORD - The Http Basic auth password for the graphite server. Default: ``
 GRAPHITE_KEYSTORE - The Http KeyStore path for the https graphite server. Default: ``
 GRAPHITE_KEYSTORE_PASSWORD - The Http KeyStore password for the https graphite server. Default: ``
