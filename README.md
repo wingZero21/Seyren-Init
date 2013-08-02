@@ -32,40 +32,6 @@ Environment variables
 
 Base
 
-eyren-Init
-===========
-
-Init.d Script for Seyren
-
-This is an init.d script for seyren which allows you to start the service.
-
-To use this you will need to make the below amendments for your environment
-
-Instructions
-
-1. Copy the seyren init.d script to /etc/init.d/ of the server that its installed on.
-2. Amend the permissions of the seyren script so that its runnable (eg chmod 777 seyren)
-3. Amend the Core environment parameters in the init.d script for your environment detailed below.
-
-init.d environment variables
-
-GRAPHITE_URL="http://graphite.somewebsite.com"
-export GRAPHITE_URL
-
-SMTP_HOST="smtp.host.com"
-export SMTP_HOST
-
-SMTP_PORT="25"
-export SMTP_PORT
-
-There are further environment variables that can be added if needed which are not currently in the script, 
-however feel free to amend this for your needs as necessary.
-
-Full Environment list
-Environment variables
-
-Base
-
 GRAPHITE_URL - The location of your graphite server. Default: http://localhost:80
 GRAPHITE_USERNAME - The Http Basic auth username for the graphite server. Default: ``
 GRAPHITE_PASSWORD - The Http Basic auth password for the graphite server. Default: ``
