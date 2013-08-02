@@ -16,13 +16,13 @@ Instructions
 init.d environment variables
 
 `GRAPHITE_URL`="http://graphite.somewebsite.com"
-export `GRAPHITE_URL`
+export GRAPHITE_URL
 
 `SMTP_HOST`="smtp.host.com"
-export `SMTP_HOST`
+export SMTP_HOST
 
 `SMTP_PORT`="25"
-export `SMTP_PORT`
+export SMTP_PORT
 
 There are further environment variables that can be added if needed which are not currently in the script, 
 however feel free to amend this for your needs as necessary.
