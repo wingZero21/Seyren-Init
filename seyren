@@ -1,0 +1,84 @@
+#!/bin/bash
+
+# seyren - Startup script for seyren
+
+# chkconfig: 35 85 15
+# description: Seyren - Graphite Alerting Tool
+# processname: seyren
+# config /usr/local/seyren-master
+# pidfile: /usr/local/seyren-master/seyren.pid
+
+. /etc/rc.d/init.d/functions
+
+# NOTE: if you change any OPTIONS here, you get what you pay for:
+# this script assumes all options are in the config file.
+# FIXME: 1.9.x has a --shutdown flag that parses the config file and
+# shuts down the correct running pid, but that's unavailable in 1.8
+# for now.  This can go away when this script stops supporting 1.8.
+## Environment Variables -- Fill in your Environment Variables GRAPHITE_URL/SMTPHOST/SMTPPORT
+GRAPHITE_URL=""
+export GRAPHITE_URL
+
+SMTP_HOST=""
+export SMTP_HOST
+
+SMTP_PORT=""
+export SMTP_PORT
+
+PIDGET=$(ps -ef | grep java | grep -v grep | awk '{print $2}')
+
+# Seyren Daemon - Enter your Java location and seyren-master install directories - Amend the log directory if needed
+
+seyrend=${SEYREND- ADDJAVADIRHERE -jar ADDSEYRENMASTERHERE/seyren-web/target/dependency/jetty-runner.jar --path /seyren ADDSEYRENMASTERHERE/seyren-web/target/*.war > /dev/null 2>&1 >> /var/log/seyren/seyren.output.log 2>> /var/log/seyren/seyren.log  &}
+
+SEYREN_USER=seyren
+SEYREN_GROUP=seyren
+
+start()
+{
+  echo -n $"Starting seyren: "
+  daemon --user "$SEYREN_USER" $seyrend
+  RETVAL=$?
+  echo
+  [ $RETVAL -eq 0 ] && touch /var/lock/subsys/seyrend
+}
+
+stop()
+{
+  echo -n $"Stopping seyren: "
+  kill -9 $PIDGET 0
+  echo
+  [ $RETVAL -eq 0 ] && rm -f /var/lock/subsys/seyrend
+}
+
+restart () {
+        stop
+        start
+}
+
+ulimit -n 12000
+RETVAL=0
+
+case "$1" in
+  start)
+    start
+    ;;
+  stop)
+    stop
+    ;;
+  restart|reload|force-reload)
+    restart
+    ;;
+  condrestart)
+    [ -f /var/lock/subsys/seyrend ] && restart || :
+    ;;
+  status)
+    status $seyrend
+    RETVAL=$?
+    ;;
+  *)
+    echo "Usage: $0 {start|stop|status|restart|reload|force-reload|condrestart}"
+    RETVAL=1
+esac
+
+exit $RETVAL
