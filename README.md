@@ -27,8 +27,7 @@ export SMTP_PORT
 There are further environment variables that can be added if needed which are not currently in the script, 
 however feel free to amend this for your needs as necessary.
 
-Full Environment list
-Environment variables
+##Full Environment list
 
 #### Base
 * `GRAPHITE_URL` - The location of your graphite server. Default: `http://localhost:80`
