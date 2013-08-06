@@ -11,6 +11,8 @@
 . /etc/rc.d/init.d/functions
 
 ## Environment Variables -- Fill in your Environment Variables GRAPHITE_URL/SMTPHOST/SMTPPORT
+hostname=`hostname`
+
 GRAPHITE_URL=""
 export GRAPHITE_URL
 
@@ -19,6 +21,9 @@ export SMTP_HOST
 
 SMTP_PORT=""
 export SMTP_PORT
+
+SEYREN_URL="http://$hostname:8080/seyren"
+export SEYREN_URL
 
 PIDGET=$(ps -ef | grep java | grep -v grep | awk '{print $2}')
 
