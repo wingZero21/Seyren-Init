@@ -46,7 +46,8 @@ start()
 stop()
 {
   echo -n $"Stopping seyren: "
-  kill -9 $PIDGET 0
+  kill -9 $PIDGET
+  RETVAL=$?
   echo
   [ $RETVAL -eq 0 ] && rm -f /var/lock/subsys/seyrend
 }
