@@ -25,7 +25,7 @@ export SMTP_PORT
 SEYREN_URL="http://$hostname:8080/seyren"
 export SEYREN_URL
 
-PIDGET=$(ps -ef | grep java | grep -v grep | awk '{print $2}')
+PIDGET=$(ps -ef | grep seyren | grep -v grep | awk '{print $2}')
 
 # Seyren Daemon - Enter your Java location and seyren-master install directories - Amend the log directory if needed
 
